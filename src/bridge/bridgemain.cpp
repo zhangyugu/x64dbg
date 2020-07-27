@@ -28,11 +28,15 @@ static bool bDisableGUIUpdate;
 #define gui_lib L"x32gui.dll"
 #endif // _WIN64
 
+DWORD error;
 #define LOADLIBRARY(name) \
     szLib=name; \
     hInst=LoadLibraryW(name); \
     if(!hInst) \
-        return L"Error loading library \"" name L"\"!"
+    {\
+        error = GetLastError();\
+        return L"Error loading library \"" name L"\"!";\
+    }
 
 #define LOADEXPORT(name) \
     *((FARPROC*)&name)=GetProcAddress(hInst, #name); \

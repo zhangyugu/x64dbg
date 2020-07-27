@@ -1,0 +1,952 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{91049E3D-25B0-3DB1-B7B0-6FFD4EBF5C8C}</ProjectGuid>
+    <RootNamespace>x32gui</RootNamespace>
+    <Keyword>QtVS_v303</Keyword>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformMinVersion>10.0.17763.0</WindowsTargetPlatformMinVersion>
+    <QtMsBuild Condition="'$(QtMsBuild)'=='' or !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
+    <ProjectName>x64dbg_gui</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <PlatformToolset>v141</PlatformToolset>
+    <OutputDirectory>..\..\bin\x32\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <IntermediateDirectory>._build\out32\</IntermediateDirectory>
+    <PrimaryOutput>x32gui</PrimaryOutput>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <PlatformToolset>v141</PlatformToolset>
+    <OutputDirectory>..\..\bin\x32d\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <IntermediateDirectory>._build\out32d\</IntermediateDirectory>
+    <PrimaryOutput>x32gui</PrimaryOutput>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
+    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
+  </Target>
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt_defaults.props')">
+    <Import Project="$(QtMsBuild)\qt_defaults.props" />
+  </ImportGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>..\..\bin\x32d\</OutDir>
+    <IntDir>._build\out32d\</IntDir>
+    <TargetName>x32gui</TargetName>
+    <IgnoreImportLibrary>true</IgnoreImportLibrary>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>..\..\bin\x32\</OutDir>
+    <IntDir>._build\out32\</IntDir>
+    <TargetName>x32gui</TargetName>
+    <IgnoreImportLibrary>true</IgnoreImportLibrary>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <QtInstall>5.14.1_32</QtInstall>
+    <QtModules>core;network;gui;widgets</QtModules>
+  </PropertyGroup>
+  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <QtInstall>5.14.1_32</QtInstall>
+    <QtModules>core;network;gui;widgets</QtModules>
+  </PropertyGroup>
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.props')">
+    <Import Project="$(QtMsBuild)\qt.props" />
+  </ImportGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.;..;Src;Src\Gui;Src\BasicView;Src\Disassembler;Src\Memory;Src\Bridge;Src/Global;Src\Utils;Src\ThirdPartyLibs\ldconvert;..\zydis_wrapper;..\zydis_wrapper\zydis\include;._build\out32;/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>._build\out32\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4577;4467;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ObjectFileName>._build\out32\</ObjectFileName>
+      <Optimization>MaxSpeed</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;NDEBUG;BUILD_LIB;NOMINMAX;QT_NO_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>user32.lib;advapi32.lib;winmm.lib;shell32.lib;E:\GitHub\x64dbg\src\zydis_wrapper\bin\x32\zydis_wrapper.lib;.\Src\ThirdPartyLibs\ldconvert\ldconvert_x86.lib;..\..\bin\x32\x32bridge.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>E:\GitHub\x64dbg\src\zydis_wrapper\bin\x32;.\Src\ThirdPartyLibs\ldconvert;..\..\bin\x32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <LinkDLL>true</LinkDLL>
+      <LinkIncremental>false</LinkIncremental>
+      <OptimizeReferences>true</OptimizeReferences>
+      <OutputFile>$(OutDir)\x32gui.dll</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SubSystem>Windows</SubSystem>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;NDEBUG;BUILD_LIB;NOMINMAX;QT_NO_DEBUG;QT_WIDGETS_LIB;QT_GUI_LIB;QT_NETWORK_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <QtMoc>
+      <CompilerFlavor>msvc</CompilerFlavor>
+      <Include>._build/out32/moc_predefs.h</Include>
+      <ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription>
+      <DynamicSource>output</DynamicSource>
+      <QtMocDir>._build\out32</QtMocDir>
+      <QtMocFileName>moc_%(Filename).cpp</QtMocFileName>
+    </QtMoc>
+    <QtRcc>
+      <InitFuncName>resource</InitFuncName>
+      <Compression>default</Compression>
+      <ExecutionDescription>Rcc'ing %(Identity)...</ExecutionDescription>
+      <QtRccDir>._build\out32</QtRccDir>
+      <QtRccFileName>qrc_%(Filename).cpp</QtRccFileName>
+    </QtRcc>
+    <QtUic>
+      <ExecutionDescription>Uic'ing %(Identity)...</ExecutionDescription>
+      <QtUicDir>._build\out32</QtUicDir>
+      <QtUicFileName>ui_%(Filename).h</QtUicFileName>
+    </QtUic>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.;..;Src;Src\Gui;Src\BasicView;Src\Disassembler;Src\Memory;Src\Bridge;Src/Global;Src\Utils;Src\ThirdPartyLibs\ldconvert;..\zydis_wrapper;..\zydis_wrapper\zydis\include;._build\out32d;/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>._build\out32d\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4577;4467;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ObjectFileName>._build\out32d\</ObjectFileName>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;BUILD_LIB;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>user32.lib;advapi32.lib;winmm.lib;shell32.lib;E:\GitHub\x64dbg\src\zydis_wrapper\bin\x32d\zydis_wrapper.lib;.\Src\ThirdPartyLibs\ldconvert\ldconvert_x86.lib;..\..\bin\x32d\x32bridge.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>E:\GitHub\x64dbg\src\zydis_wrapper\bin\x32d;.\Src\ThirdPartyLibs\ldconvert;..\..\bin\x32d;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <LinkDLL>true</LinkDLL>
+      <OutputFile>$(OutDir)\x32gui.dll</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SubSystem>Windows</SubSystem>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;BUILD_LIB;NOMINMAX;QT_WIDGETS_LIB;QT_GUI_LIB;QT_NETWORK_LIB;QT_CORE_LIB;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <QtMoc>
+      <CompilerFlavor>msvc</CompilerFlavor>
+      <Include>._build/out32d/moc_predefs.h</Include>
+      <ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription>
+      <DynamicSource>output</DynamicSource>
+      <QtMocDir>._build\out32d</QtMocDir>
+      <QtMocFileName>moc_%(Filename).cpp</QtMocFileName>
+    </QtMoc>
+    <QtRcc>
+      <Compression>default</Compression>
+      <InitFuncName>resource</InitFuncName>
+      <ExecutionDescription>Rcc'ing %(Identity)...</ExecutionDescription>
+      <QtRccDir>._build\out32d</QtRccDir>
+      <QtRccFileName>qrc_%(Filename).cpp</QtRccFileName>
+    </QtRcc>
+    <QtUic>
+      <ExecutionDescription>Uic'ing %(Identity)...</ExecutionDescription>
+      <QtUicDir>._build\out32d</QtUicDir>
+      <QtUicFileName>ui_%(Filename).h</QtUicFileName>
+    </QtUic>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Src\Gui\AboutDialog.cpp" />
+    <ClCompile Include="Src\BasicView\AbstractStdTable.cpp" />
+    <ClCompile Include="Src\BasicView\AbstractTableView.cpp" />
+    <ClCompile Include="Src\Gui\AppearanceDialog.cpp" />
+    <ClCompile Include="Src\QHexEdit\ArrayCommand.cpp" />
+    <ClCompile Include="Src\Gui\AssembleDialog.cpp" />
+    <ClCompile Include="Src\Gui\AttachDialog.cpp" />
+    <ClCompile Include="Src\Utils\BackgroundFlickerThread.cpp" />
+    <ClCompile Include="Src\Gui\BreakpointMenu.cpp" />
+    <ClCompile Include="Src\Utils\Breakpoints.cpp" />
+    <ClCompile Include="Src\Gui\BreakpointsView.cpp" />
+    <ClCompile Include="Src\Bridge\Bridge.cpp" />
+    <ClCompile Include="Src\Bridge\BridgeResult.cpp" />
+    <ClCompile Include="Src\Gui\BrowseDialog.cpp" />
+    <ClCompile Include="Src\Gui\CPUArgumentWidget.cpp" />
+    <ClCompile Include="Src\Gui\CPUDisassembly.cpp" />
+    <ClCompile Include="Src\Gui\CPUDump.cpp" />
+    <ClCompile Include="Src\Gui\CPUInfoBox.cpp" />
+    <ClCompile Include="Src\Gui\CPUMultiDump.cpp" />
+    <ClCompile Include="Src\Gui\CPUSideBar.cpp" />
+    <ClCompile Include="Src\Gui\CPUStack.cpp" />
+    <ClCompile Include="Src\Gui\CPUWidget.cpp" />
+    <ClCompile Include="Src\Gui\CalculatorDialog.cpp" />
+    <ClCompile Include="Src\Gui\CallStackView.cpp" />
+    <ClCompile Include="Src\Gui\CloseDialog.cpp" />
+    <ClCompile Include="Src\Utils\CodeFolding.cpp" />
+    <ClCompile Include="Src\Gui\CodepageSelectionDialog.cpp" />
+    <ClCompile Include="Src\Gui\ColumnReorderDialog.cpp" />
+    <ClCompile Include="Src\Gui\ComboBoxDialog.cpp" />
+    <ClCompile Include="Src\Gui\CommandLineEdit.cpp" />
+    <ClCompile Include="Src\Utils\Configuration.cpp" />
+    <ClCompile Include="Src\Gui\CustomizeMenuDialog.cpp" />
+    <ClCompile Include="Src\Gui\DebugStatusLabel.cpp" />
+    <ClCompile Include="Src\Gui\DisassemblerGraphView.cpp" />
+    <ClCompile Include="Src\BasicView\Disassembly.cpp" />
+    <ClCompile Include="Src\Gui\DisassemblyPopup.cpp" />
+    <ClCompile Include="Src\Gui\EditBreakpointDialog.cpp" />
+    <ClCompile Include="Src\Gui\EditFloatRegister.cpp" />
+    <ClCompile Include="Src\Utils\EncodeMap.cpp" />
+    <ClCompile Include="Src\Gui\ExceptionRangeDialog.cpp" />
+    <ClCompile Include="Src\Gui\FavouriteTools.cpp" />
+    <ClCompile Include="Src\Utils\FlickerThread.cpp" />
+    <ClCompile Include="Src\Gui\GotoDialog.cpp" />
+    <ClCompile Include="Src\Gui\HandlesView.cpp" />
+    <ClCompile Include="Src\BasicView\HexDump.cpp" />
+    <ClCompile Include="Src\Gui\HexEditDialog.cpp" />
+    <ClCompile Include="Src\Gui\HexLineEdit.cpp" />
+    <ClCompile Include="Src\Utils\HexValidator.cpp" />
+    <ClCompile Include="Src\BasicView\HistoryLineEdit.cpp" />
+    <ClCompile Include="Src\BasicView\LabeledSplitter.cpp" />
+    <ClCompile Include="Src\BasicView\LabeledSplitterDetachedWindow.cpp" />
+    <ClCompile Include="Src\Gui\LineEditDialog.cpp" />
+    <ClCompile Include="Src\Gui\LocalVarsView.cpp" />
+    <ClCompile Include="Src\Gui\LogStatusLabel.cpp" />
+    <ClCompile Include="Src\Gui\LogView.cpp" />
+    <ClCompile Include="Src\Utils\LongLongValidator.cpp" />
+    <ClCompile Include="Src\Utils\MRUList.cpp" />
+    <ClCompile Include="Src\Gui\MainWindow.cpp" />
+    <ClCompile Include="Src\Utils\MainWindowCloseThread.cpp" />
+    <ClCompile Include="Src\Gui\MemoryMapView.cpp" />
+    <ClCompile Include="Src\Memory\MemoryPage.cpp" />
+    <ClCompile Include="Src\Utils\MenuBuilder.cpp" />
+    <ClCompile Include="Src\Gui\MessagesBreakpoints.cpp" />
+    <ClCompile Include="Src\Utils\MiscUtil.cpp" />
+    <ClCompile Include="Src\Gui\MultiItemsSelectWindow.cpp" />
+    <ClCompile Include="Src\Gui\NotepadView.cpp" />
+    <ClCompile Include="Src\Gui\NotesManager.cpp" />
+    <ClCompile Include="Src\Gui\PageMemoryRights.cpp" />
+    <ClCompile Include="Src\Gui\PatchDialog.cpp" />
+    <ClCompile Include="Src\Gui\PatchDialogGroupSelector.cpp" />
+    <ClCompile Include="Src\Disassembler\QBeaEngine.cpp" />
+    <ClCompile Include="Src\QHexEdit\QHexEdit.cpp" />
+    <ClCompile Include="Src\QHexEdit\QHexEditPrivate.cpp" />
+    <ClCompile Include="Src\Gui\ReferenceManager.cpp" />
+    <ClCompile Include="Src\BasicView\ReferenceView.cpp" />
+    <ClCompile Include="Src\Gui\RegistersView.cpp" />
+    <ClCompile Include="Src\Utils\RichTextPainter.cpp" />
+    <ClCompile Include="Src\Gui\SEHChainView.cpp" />
+    <ClCompile Include="Src\Gui\ScriptView.cpp" />
+    <ClCompile Include="Src\BasicView\SearchListView.cpp" />
+    <ClCompile Include="Src\Gui\SelectFields.cpp" />
+    <ClCompile Include="Src\Gui\SettingsDialog.cpp" />
+    <ClCompile Include="Src\BasicView\ShortcutEdit.cpp" />
+    <ClCompile Include="Src\Gui\ShortcutsDialog.cpp" />
+    <ClCompile Include="Src\Gui\SimpleTraceDialog.cpp" />
+    <ClCompile Include="Src\Gui\SourceView.cpp" />
+    <ClCompile Include="Src\Gui\SourceViewerManager.cpp" />
+    <ClCompile Include="Src\BasicView\StdSearchListView.cpp" />
+    <ClCompile Include="Src\BasicView\StdTable.cpp" />
+    <ClCompile Include="Src\BasicView\StdTableSearchList.cpp" />
+    <ClCompile Include="Src\Utils\StringUtil.cpp" />
+    <ClCompile Include="Src\Gui\StructWidget.cpp" />
+    <ClCompile Include="Src\Utils\SymbolAutoCompleteModel.cpp" />
+    <ClCompile Include="Src\Gui\SymbolView.cpp" />
+    <ClCompile Include="Src\Gui\TabBar.cpp" />
+    <ClCompile Include="Src\Gui\TabWidget.cpp" />
+    <ClCompile Include="Src\Gui\ThreadView.cpp" />
+    <ClCompile Include="Src\Gui\TimeWastedCounter.cpp" />
+    <ClCompile Include="Src\Tracer\TraceBrowser.cpp" />
+    <ClCompile Include="Src\Tracer\TraceFileReader.cpp" />
+    <ClCompile Include="Src\Tracer\TraceFileSearch.cpp" />
+    <ClCompile Include="Src\Utils\UpdateChecker.cpp" />
+    <ClCompile Include="Src\Utils\ValidateExpressionThread.cpp" />
+    <ClCompile Include="Src\Gui\VirtualModDialog.cpp" />
+    <ClCompile Include="Src\Gui\WatchView.cpp" />
+    <ClCompile Include="Src\Gui\WordEditDialog.cpp" />
+    <ClCompile Include="Src\QHexEdit\XByteArray.cpp" />
+    <ClCompile Include="Src\Gui\XrefBrowseDialog.cpp" />
+    <ClCompile Include="Src\Gui\ZehSymbolTable.cpp" />
+    <ClCompile Include="Src\Disassembler\ZydisTokenizer.cpp" />
+    <ClCompile Include="Src\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="Src\Gui\AboutDialog.h">
+    </QtMoc>
+    <ClInclude Include="Src\BasicView\AbstractSearchList.h" />
+    <QtMoc Include="Src\BasicView\AbstractStdTable.h">
+    </QtMoc>
+    <QtMoc Include="Src\BasicView\AbstractTableView.h">
+    </QtMoc>
+    <ClInclude Include="Src\Utils\ActionHelpers.h" />
+    <QtMoc Include="Src\Gui\AppearanceDialog.h">
+    </QtMoc>
+    <ClInclude Include="Src\QHexEdit\ArrayCommand.h" />
+    <QtMoc Include="Src\Gui\AssembleDialog.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\AttachDialog.h">
+    </QtMoc>
+    <QtMoc Include="Src\Utils\BackgroundFlickerThread.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\BreakpointMenu.h">
+    </QtMoc>
+    <QtMoc Include="Src\Utils\Breakpoints.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\BreakpointsView.h">
+    </QtMoc>
+    <QtMoc Include="Src\Bridge\Bridge.h">
+    </QtMoc>
+    <ClInclude Include="Src\Bridge\BridgeResult.h" />
+    <QtMoc Include="Src\Gui\BrowseDialog.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\CPUArgumentWidget.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\CPUDisassembly.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\CPUDump.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\CPUInfoBox.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\CPUMultiDump.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\CPUSideBar.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\CPUStack.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\CPUWidget.h">
+    </QtMoc>
+    <QtMoc Include="Src\Utils\CachedFontMetrics.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\CalculatorDialog.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\CallStackView.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\CloseDialog.h">
+    </QtMoc>
+    <ClInclude Include="Src\Utils\CodeFolding.h" />
+    <QtMoc Include="Src\Gui\CodepageSelectionDialog.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\ColumnReorderDialog.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\ComboBoxDialog.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\CommandLineEdit.h">
+    </QtMoc>
+    <QtMoc Include="Src\Utils\Configuration.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\CustomizeMenuDialog.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\DebugStatusLabel.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\DisassemblerGraphView.h">
+    </QtMoc>
+    <QtMoc Include="Src\BasicView\Disassembly.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\DisassemblyPopup.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\EditBreakpointDialog.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\EditFloatRegister.h">
+    </QtMoc>
+    <QtMoc Include="Src\Utils\EncodeMap.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\ExceptionRangeDialog.h">
+    </QtMoc>
+    <ClInclude Include="Src\Exports.h" />
+    <QtMoc Include="Src\Gui\FavouriteTools.h">
+    </QtMoc>
+    <ClInclude Include="Src\Gui\FileLines.h" />
+    <QtMoc Include="Src\Utils\FlickerThread.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\GotoDialog.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\HandlesView.h">
+    </QtMoc>
+    <QtMoc Include="Src\BasicView\HexDump.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\HexEditDialog.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\HexLineEdit.h">
+    </QtMoc>
+    <QtMoc Include="Src\Utils\HexValidator.h">
+    </QtMoc>
+    <QtMoc Include="Src\BasicView\HistoryLineEdit.h">
+    </QtMoc>
+    <ClInclude Include="Src\Imports.h" />
+    <QtMoc Include="Src\BasicView\LabeledSplitter.h">
+    </QtMoc>
+    <QtMoc Include="Src\BasicView\LabeledSplitterDetachedWindow.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\LineEditDialog.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\LocalVarsView.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\LogStatusLabel.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\LogView.h">
+    </QtMoc>
+    <QtMoc Include="Src\Utils\LongLongValidator.h">
+    </QtMoc>
+    <QtMoc Include="Src\Utils\MRUList.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\MainWindow.h">
+    </QtMoc>
+    <QtMoc Include="Src\Utils\MainWindowCloseThread.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\MemoryMapView.h">
+    </QtMoc>
+    <QtMoc Include="Src\Memory\MemoryPage.h">
+    </QtMoc>
+    <QtMoc Include="Src\Utils\MenuBuilder.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\MessagesBreakpoints.h">
+    </QtMoc>
+    <ClInclude Include="Src\Utils\MethodInvoker.h" />
+    <ClInclude Include="Src\Utils\MiscUtil.h" />
+    <QtMoc Include="Src\Gui\MultiItemsSelectWindow.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\NotepadView.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\NotesManager.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\PageMemoryRights.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\PatchDialog.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\PatchDialogGroupSelector.h">
+    </QtMoc>
+    <ClInclude Include="Src\Disassembler\QBeaEngine.h" />
+    <QtMoc Include="Src\QHexEdit\QHexEdit.h">
+    </QtMoc>
+    <QtMoc Include="Src\QHexEdit\QHexEditPrivate.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\ReferenceManager.h">
+    </QtMoc>
+    <QtMoc Include="Src\BasicView\ReferenceView.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\RegistersView.h">
+    </QtMoc>
+    <ClInclude Include="Src\Utils\RichTextPainter.h" />
+    <QtMoc Include="Src\Gui\SEHChainView.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\ScriptView.h">
+    </QtMoc>
+    <QtMoc Include="Src\BasicView\SearchListView.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\SelectFields.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\SettingsDialog.h">
+    </QtMoc>
+    <QtMoc Include="Src\BasicView\ShortcutEdit.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\ShortcutsDialog.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\SimpleTraceDialog.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\SourceView.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\SourceViewerManager.h">
+    </QtMoc>
+    <QtMoc Include="Src\BasicView\StdSearchListView.h">
+    </QtMoc>
+    <QtMoc Include="Src\BasicView\StdTable.h">
+    </QtMoc>
+    <ClInclude Include="Src\BasicView\StdTableSearchList.h" />
+    <ClInclude Include="Src\Utils\StringUtil.h" />
+    <QtMoc Include="Src\Gui\StructWidget.h">
+    </QtMoc>
+    <QtMoc Include="Src\Utils\SymbolAutoCompleteModel.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\SymbolView.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\TabBar.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\TabWidget.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\ThreadView.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\TimeWastedCounter.h">
+    </QtMoc>
+    <QtMoc Include="Src\Tracer\TraceBrowser.h">
+    </QtMoc>
+    <QtMoc Include="Src\Tracer\TraceFileReader.h">
+    </QtMoc>
+    <QtMoc Include="Src\Tracer\TraceFileReaderInternal.h">
+    </QtMoc>
+    <ClInclude Include="Src\Tracer\TraceFileSearch.h" />
+    <QtMoc Include="Src\Utils\UpdateChecker.h">
+    </QtMoc>
+    <ClInclude Include="Src\Utils\VaHistory.h" />
+    <QtMoc Include="Src\Utils\ValidateExpressionThread.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\VirtualModDialog.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\WatchView.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\WordEditDialog.h">
+    </QtMoc>
+    <ClInclude Include="Src\QHexEdit\XByteArray.h" />
+    <QtMoc Include="Src\Gui\XrefBrowseDialog.h">
+    </QtMoc>
+    <QtMoc Include="Src\Gui\ZehSymbolTable.h">
+    </QtMoc>
+    <ClInclude Include="Src\Disassembler\ZydisTokenizer.h" />
+    <ClInclude Include="Src\main.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="._build\out32\moc_predefs.h.cbt">
+      <FileType>Document</FileType>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\mkspecs\features\data\dummy.cpp;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cl -Bx"$(QTDIR)\bin\qmake.exe" -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus -O2 -MD -Zi -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -E $(QTDIR)\mkspecs\features\data\dummy.cpp 2&gt;NUL &gt;._build\out32\moc_predefs.h</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generate moc_predefs.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">._build\out32\moc_predefs.h;%(Outputs)</Outputs>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="._build\out32d\moc_predefs.h.cbt">
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\mkspecs\features\data\dummy.cpp;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cl -Bx"$(QTDIR)\bin\qmake.exe" -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus -Zi -MDd -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -E $(QTDIR)\mkspecs\features\data\dummy.cpp 2&gt;NUL &gt;._build\out32d\moc_predefs.h</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generate moc_predefs.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">._build\out32d\moc_predefs.h;%(Outputs)</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="Src\Gui\AboutDialog.ui">
+    </QtUic>
+    <QtUic Include="Src\Gui\AppearanceDialog.ui">
+    </QtUic>
+    <QtUic Include="Src\Gui\AssembleDialog.ui">
+    </QtUic>
+    <QtUic Include="Src\Gui\AttachDialog.ui">
+    </QtUic>
+    <QtUic Include="Src\Gui\BrowseDialog.ui">
+    </QtUic>
+    <QtUic Include="Src\Gui\CPUArgumentWidget.ui">
+    </QtUic>
+    <QtUic Include="Src\Gui\CPUWidget.ui">
+    </QtUic>
+    <QtUic Include="Src\Gui\CalculatorDialog.ui">
+    </QtUic>
+    <QtUic Include="Src\Gui\CloseDialog.ui">
+    </QtUic>
+    <QtUic Include="Src\Gui\CodepageSelectionDialog.ui">
+    </QtUic>
+    <QtUic Include="Src\Gui\ColumnReorderDialog.ui">
+    </QtUic>
+    <QtUic Include="Src\Gui\ComboBoxDialog.ui">
+    </QtUic>
+    <QtUic Include="Src\Gui\CustomizeMenuDialog.ui">
+    </QtUic>
+    <QtUic Include="Src\Gui\EditBreakpointDialog.ui">
+    </QtUic>
+    <QtUic Include="Src\Gui\EditFloatRegister.ui">
+    </QtUic>
+    <QtUic Include="Src\Gui\ExceptionRangeDialog.ui">
+    </QtUic>
+    <QtUic Include="Src\Gui\FavouriteTools.ui">
+    </QtUic>
+    <QtUic Include="Src\Gui\GotoDialog.ui">
+    </QtUic>
+    <QtUic Include="Src\Gui\HexEditDialog.ui">
+    </QtUic>
+    <QtUic Include="Src\Gui\HexLineEdit.ui">
+    </QtUic>
+    <QtUic Include="Src\Gui\LineEditDialog.ui">
+    </QtUic>
+    <QtUic Include="Src\Gui\MainWindow.ui">
+    </QtUic>
+    <QtUic Include="Src\Gui\MessagesBreakpoints.ui">
+    </QtUic>
+    <QtUic Include="Src\Gui\PageMemoryRights.ui">
+    </QtUic>
+    <QtUic Include="Src\Gui\PatchDialog.ui">
+    </QtUic>
+    <QtUic Include="Src\Gui\PatchDialogGroupSelector.ui">
+    </QtUic>
+    <QtUic Include="Src\Gui\SelectFields.ui">
+    </QtUic>
+    <QtUic Include="Src\Gui\SettingsDialog.ui">
+    </QtUic>
+    <QtUic Include="Src\Gui\ShortcutsDialog.ui">
+    </QtUic>
+    <QtUic Include="Src\Gui\SimpleTraceDialog.ui">
+    </QtUic>
+    <QtUic Include="Src\Gui\StructWidget.ui">
+    </QtUic>
+    <QtUic Include="Src\Gui\SymbolView.ui">
+    </QtUic>
+    <QtUic Include="Src\Gui\VirtualModDialog.ui">
+    </QtUic>
+    <QtUic Include="Src\Gui\WordEditDialog.ui">
+    </QtUic>
+    <QtUic Include="Src\Gui\XrefBrowseDialog.ui">
+    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\16bit-short.png" />
+    <None Include="images\16bit.png" />
+    <None Include="images\32bit-float.png" />
+    <None Include="images\32bit-long.png" />
+    <None Include="images\32bit.png" />
+    <None Include="images\64bit-float.png" />
+    <None Include="images\64bit-long.png" />
+    <None Include="images\64bit.png" />
+    <None Include="images\80bit-float.png" />
+    <None Include="images\80bit.png" />
+    <None Include="images\address.png" />
+    <None Include="images\analysis.png" />
+    <None Include="images\analysis_single_function.png" />
+    <None Include="images\analyzemodule.png" />
+    <None Include="images\animal-dog.png" />
+    <None Include="images\animatecommand.png" />
+    <None Include="images\animateinto.png" />
+    <None Include="images\animateover.png" />
+    <None Include="images\arguments.png" />
+    <None Include="images\arrow-restart.png" />
+    <None Include="images\arrow-run-cursor.png" />
+    <None Include="images\arrow-run.png" />
+    <None Include="images\arrow-skip.png" />
+    <None Include="images\arrow-small-down.png" />
+    <None Include="images\arrow-small-up.png" />
+    <None Include="images\arrow-step-into.png" />
+    <None Include="images\arrow-step-over.png" />
+    <None Include="images\arrow-step-rtr.png" />
+    <None Include="images\arrow-threads.png" />
+    <None Include="images\ascii-extended.png" />
+    <None Include="images\ascii.png" />
+    <None Include="images\attach.png" />
+    <None Include="images\binary.png" />
+    <None Include="images\binary_copy.png" />
+    <None Include="images\binary_edit.png" />
+    <None Include="images\binary_fill.png" />
+    <None Include="images\binary_fill_nop.png" />
+    <None Include="images\binary_paste.png" />
+    <None Include="images\binary_paste_ignoresize.png" />
+    <None Include="images\binary_save.png" />
+    <None Include="images\bit.png" />
+    <None Include="images\bookmark.png" />
+    <None Include="images\bookmark_toggle.png" />
+    <None Include="images\bookmarks.png" />
+    <None Include="images\bottom.png" />
+    <None Include="images\branchpreview.png" />
+    <None Include="images\breakpoint.png" />
+    <None Include="images\breakpoint_access.png" />
+    <None Include="images\breakpoint_add.png" />
+    <None Include="images\breakpoint_byte.png" />
+    <None Include="images\breakpoint_disable.png" />
+    <None Include="images\breakpoint_disable_all.png" />
+    <None Include="images\breakpoint_dword.png" />
+    <None Include="images\breakpoint_edit.png" />
+    <None Include="images\breakpoint_edit_alt.png" />
+    <None Include="images\breakpoint_editcaret.png" />
+    <None Include="images\breakpoint_enable.png" />
+    <None Include="images\breakpoint_enable_all.png" />
+    <None Include="images\breakpoint_exception_add.png" />
+    <None Include="images\breakpoint_execute.png" />
+    <None Include="images\breakpoint_execute_slot1.png" />
+    <None Include="images\breakpoint_execute_slot2.png" />
+    <None Include="images\breakpoint_execute_slot3.png" />
+    <None Include="images\breakpoint_execute_slot4.png" />
+    <None Include="images\breakpoint_memory_access.png" />
+    <None Include="images\breakpoint_memory_execute.png" />
+    <None Include="images\breakpoint_memory_read.png" />
+    <None Include="images\breakpoint_memory_restore_on_hit.png" />
+    <None Include="images\breakpoint_memory_singleshoot.png" />
+    <None Include="images\breakpoint_memory_write.png" />
+    <None Include="images\breakpoint_module_add.png" />
+    <None Include="images\breakpoint_qword.png" />
+    <None Include="images\breakpoint_remove.png" />
+    <None Include="images\breakpoint_remove_all.png" />
+    <None Include="images\breakpoint_remove_all_commands.png" />
+    <None Include="images\breakpoint_reset_hitcount.png" />
+    <None Include="images\breakpoint_seton_all_commands.png" />
+    <None Include="images\breakpoint_settings.png" />
+    <None Include="images\breakpoint_toggle.png" />
+    <None Include="images\breakpoint_word.png" />
+    <None Include="images\breakpoint_write.png" />
+    <None Include="images\browseinexplorer.png" />
+    <None Include="images\bug-report.png" />
+    <None Include="images\bug.png" />
+    <None Include="images\byte.png" />
+    <None Include="images\calculator.png" />
+    <None Include="images\call.png" />
+    <None Include="images\callstack.png" />
+    <None Include="images\cbp.png" />
+    <None Include="images\change-view.png" />
+    <None Include="images\changeargs.png" />
+    <None Include="images\christmas1.png" />
+    <None Include="images\christmas2.png" />
+    <None Include="images\christmas3.png" />
+    <None Include="images\christmas4.png" />
+    <None Include="images\christmas5.png" />
+    <None Include="images\christmas6.png" />
+    <None Include="images\christmas7.png" />
+    <None Include="images\christmas8.png" />
+    <None Include="images\close-all-tabs.png" />
+    <None Include="images\codepage.png" />
+    <None Include="images\color-swatches.png" />
+    <None Include="images\comment.png" />
+    <None Include="images\comments.png" />
+    <None Include="images\compile-error.png" />
+    <None Include="images\compile-warning.png" />
+    <None Include="images\compile.png" />
+    <None Include="images\control-exit.png" />
+    <None Include="images\control-pause.png" />
+    <None Include="images\control-stop.png" />
+    <None Include="images\copy-alt.png" />
+    <None Include="images\copy.png" />
+    <None Include="images\copy_address.png" />
+    <None Include="images\copy_cropped_table.png" />
+    <None Include="images\copy_disassembly.png" />
+    <None Include="images\copy_full_table.png" />
+    <None Include="images\copy_selection.png" />
+    <None Include="images\copy_selection_no_bytes.png" />
+    <None Include="images\copy_table_line.png" />
+    <None Include="images\copyfilepath.png" />
+    <None Include="images\crash_dump.png" />
+    <None Include="images\createthread.png" />
+    <None Include="images\css.png" />
+    <None Include="images\data-copy.png" />
+    <None Include="images\database-export.png" />
+    <None Include="images\database-import.png" />
+    <None Include="default.css" />
+    <None Include="images\detach.png" />
+    <None Include="images\disable.png" />
+    <None Include="images\document-binary.png" />
+    <None Include="images\donate.png" />
+    <None Include="images\donation_qr.png" />
+    <None Include="images\download_symbols.png" />
+    <None Include="images\dump.png" />
+    <None Include="images\dword.png" />
+    <None Include="images\easter1.png" />
+    <None Include="images\easter2.png" />
+    <None Include="images\easter3.png" />
+    <None Include="images\easter4.png" />
+    <None Include="images\easter5.png" />
+    <None Include="images\easter6.png" />
+    <None Include="images\easter7.png" />
+    <None Include="images\easter8.png" />
+    <None Include="images\edit-script.png" />
+    <None Include="images\egg.wav" />
+    <None Include="images\enable.png" />
+    <None Include="images\entrypoint.png" />
+    <None Include="images\eraser.png" />
+    <None Include="images\exclamation.png" />
+    <None Include="images\faq.png" />
+    <None Include="images\fatal-error.png" />
+    <None Include="images\fileoffset.png" />
+    <None Include="images\find.png" />
+    <None Include="images\fit.png" />
+    <None Include="images\float.png" />
+    <None Include="images\folder-horizontal-open.png" />
+    <None Include="images\follow_entrypoint.png" />
+    <None Include="images\follow_in_cpu.png" />
+    <None Include="images\follow_in_dump.png" />
+    <None Include="images\follow_in_dump1.png" />
+    <None Include="images\follow_in_dump2.png" />
+    <None Include="images\follow_in_dump3.png" />
+    <None Include="images\follow_in_dump4.png" />
+    <None Include="images\follow_in_dump5.png" />
+    <None Include="images\freeze.png" />
+    <None Include="images\functionend.png" />
+    <None Include="images\functions.png" />
+    <None Include="images\functionstart.png" />
+    <None Include="images\geolocation-goto.png" />
+    <None Include="images\goto.png" />
+    <None Include="images\graph.png" />
+    <None Include="images\guid.png" />
+    <None Include="images\handles.png" />
+    <None Include="images\help.png" />
+    <None Include="images\helpbrief.png" />
+    <None Include="images\helpmnemonic.png" />
+    <None Include="images\hex.png" />
+    <None Include="images\hide-debugger.png" />
+    <None Include="images\hidetab.png" />
+    <None Include="images\highlight.png" />
+    <None Include="images\image.png" />
+    <None Include="images\import.png" />
+    <None Include="images\importsettings.png" />
+    <None Include="images\information.png" />
+    <None Include="images\initscript.png" />
+    <None Include="images\integer.png" />
+    <None Include="images\label.png" />
+    <None Include="images\labels.png" />
+    <None Include="images\layout.png" />
+    <None Include="images\lib.png" />
+    <None Include="images\lib_free.png" />
+    <None Include="images\lib_load.png" />
+    <None Include="images\load-script.png" />
+    <None Include="images\localvars.png" />
+    <None Include="images\lock.png" />
+    <None Include="images\log.png" />
+    <None Include="images\markasparty.png" />
+    <None Include="images\markassystem.png" />
+    <None Include="images\markasuser.png" />
+    <None Include="images\medium.png" />
+    <None Include="images\memmap_alloc_memory.png" />
+    <None Include="images\memmap_dump_memory_to_file.png" />
+    <None Include="images\memmap_find_address_page.png" />
+    <None Include="images\memmap_free_memory.png" />
+    <None Include="images\memmap_memory_breakpoint.png" />
+    <None Include="images\memmap_set_page_memory_rights.png" />
+    <None Include="images\memory-map.png" />
+    <None Include="images\modify.png" />
+    <None Include="images\names.png" />
+    <None Include="images\narrow.png" />
+    <None Include="images\neworigin.png" />
+    <None Include="images\next.png" />
+    <None Include="images\nextref.png" />
+    <None Include="images\notes.png" />
+    <None Include="images\patch.png" />
+    <None Include="images\pdb.png" />
+    <None Include="images\pdb_alt.png" />
+    <None Include="images\plugin.png" />
+    <None Include="images\previous.png" />
+    <None Include="images\prevref.png" />
+    <None Include="images\processor-cpu.png" />
+    <None Include="images\processor32.png" />
+    <None Include="images\processor64.png" />
+    <None Include="images\question.png" />
+    <None Include="images\qword.png" />
+    <None Include="images\recentfiles.png" />
+    <None Include="images\register_dec.png" />
+    <None Include="images\register_edit.png" />
+    <None Include="images\register_inc.png" />
+    <None Include="images\register_one.png" />
+    <None Include="images\register_toggle.png" />
+    <None Include="images\register_zero.png" />
+    <None Include="images\remove_analysis_from_module.png" />
+    <None Include="images\remove_analysis_from_selection.png" />
+    <None Include="images\removestruct.png" />
+    <QtRcc Include="resource.qrc">
+    </QtRcc>
+    <None Include="images\runtouser.png" />
+    <None Include="images\script-code.png" />
+    <None Include="images\script-error.png" />
+    <None Include="images\scylla.png" />
+    <None Include="images\search-for.png" />
+    <None Include="images\search.png" />
+    <None Include="images\search_all_modules.png" />
+    <None Include="images\search_current_module.png" />
+    <None Include="images\search_current_region.png" />
+    <None Include="images\search_for_command.png" />
+    <None Include="images\search_for_constant.png" />
+    <None Include="images\search_for_pattern.png" />
+    <None Include="images\search_for_string.png" />
+    <None Include="images\seh-chain.png" />
+    <None Include="images\settings.png" />
+    <None Include="images\shortcut.png" />
+    <None Include="images\simdmode.png" />
+    <None Include="images\source.png" />
+    <None Include="images\stack.png" />
+    <None Include="images\star.png" />
+    <None Include="images\strings.png" />
+    <None Include="images\struct.png" />
+    <None Include="images\structaddr.png" />
+    <None Include="images\summary.png" />
+    <None Include="images\sync.png" />
+    <None Include="images\terminal-command.png" />
+    <None Include="images\thread-entry.png" />
+    <None Include="images\thread-kill.png" />
+    <None Include="images\thread-pause.png" />
+    <None Include="images\thread-priority-above-normal.png" />
+    <None Include="images\thread-priority-below-normal.png" />
+    <None Include="images\thread-priority-highest.png" />
+    <None Include="images\thread-priority-idle.png" />
+    <None Include="images\thread-priority-lowest.png" />
+    <None Include="images\thread-priority-normal.png" />
+    <None Include="images\thread-priority-timecritical.png" />
+    <None Include="images\thread-resume.png" />
+    <None Include="images\thread-setpriority.png" />
+    <None Include="images\thread-setpriority_alt.png" />
+    <None Include="images\thread-switch.png" />
+    <None Include="images\top.png" />
+    <None Include="images\topmost.png" />
+    <None Include="images\trace.png" />
+    <None Include="images\traceinto.png" />
+    <None Include="images\traceover.png" />
+    <None Include="images\treat_from_selection_as.png" />
+    <None Include="images\treat_selection_as_ascii.png" />
+    <None Include="images\treat_selection_as_byte.png" />
+    <None Include="images\treat_selection_as_cmd.png" />
+    <None Include="images\treat_selection_as_double.png" />
+    <None Include="images\treat_selection_as_dword.png" />
+    <None Include="images\treat_selection_as_float.png" />
+    <None Include="images\treat_selection_as_fword.png" />
+    <None Include="images\treat_selection_as_longdouble.png" />
+    <None Include="images\treat_selection_as_mmword.png" />
+    <None Include="images\treat_selection_as_oword.png" />
+    <None Include="images\treat_selection_as_qword.png" />
+    <None Include="images\treat_selection_as_tbyte.png" />
+    <None Include="images\treat_selection_as_unicode.png" />
+    <None Include="images\treat_selection_as_word.png" />
+    <None Include="images\treat_selection_as_xmm.png" />
+    <None Include="images\treat_selection_as_ymm.png" />
+    <None Include="images\treat_selection_head_as.png" />
+    <None Include="images\uac.png" />
+    <None Include="images\ui-combo-box-edit.png" />
+    <None Include="images\undo.png" />
+    <None Include="images\unicode.png" />
+    <None Include="images\update.png" />
+    <None Include="images\variables.png" />
+    <None Include="images\virtual.png" />
+    <None Include="images\visitstruct.png" />
+    <None Include="images\wide.png" />
+    <None Include="images\win-help.png" />
+    <None Include="images\word.png" />
+    <None Include="images\xmm.png" />
+    <None Include="images\xrefs.png" />
+    <None Include="images\yara.png" />
+    <None Include="images\ymm.png" />
+    <None Include="images\zmm.png" />
+    <None Include="images\zoom.png" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
+    <Import Project="$(QtMsBuild)\qt.targets" />
+  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets" />
+</Project>
