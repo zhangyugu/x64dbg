@@ -80,3 +80,4 @@ build-wrapper*
 My Amplifier Results - */
 My Inspector Results - */
 /bin/x96dbg.ini
+src/gui/._build/*
