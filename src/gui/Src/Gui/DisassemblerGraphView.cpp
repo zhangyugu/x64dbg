@@ -16,6 +16,7 @@
 #include "BreakpointMenu.h"
 #include "StringUtil.h"
 #include "MiscUtil.h"
+#include <QMainWindow>
 
 DisassemblerGraphView::DisassemblerGraphView(QWidget* parent)
     : QAbstractScrollArea(parent),
@@ -59,6 +60,7 @@ DisassemblerGraphView::DisassemblerGraphView(QWidget* parent)
     this->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     this->horizontalScrollBar()->setSingleStep(this->charWidth);
     this->verticalScrollBar()->setSingleStep(this->charHeight);
+    this->setWindowIcon(DIcon("graph.png"));
 
     //QSize areaSize = this->viewport()->size();             <-\
     //this->adjustSize(areaSize.width(), areaSize.height()); <-- useless at this point (?)
@@ -339,7 +341,7 @@ void DisassemblerGraphView::paintNormal(QPainter & p, QRect & viewportRect, int 
 
             //Render node background
             p.setPen(graphNodeColor);
-            p.setBrush(disassemblyBackgroundColor);
+            p.setBrush(graphNodeBackgroundColor);
             p.drawRect(block.x + this->charWidth, block.y + this->charWidth,
                        block.width - (4 + 2 * this->charWidth), block.height - (4 + 2 * this->charWidth));
 
@@ -1080,7 +1082,10 @@ void DisassemblerGraphView::mousePressEvent(QMouseEvent* event)
         //Update current instruction
         duint instr = this->getInstrForMouseEvent(event);
         if(instr != 0)
+        {
             this->cur_instr = instr;
+            emit selectionChanged(instr);
+        }
 
         this->viewport()->update();
 
@@ -1905,6 +1910,7 @@ bool DisassemblerGraphView::navigate(duint addr)
                 this->cur_instr = instr.addr;
                 this->show_cur_instr();
                 this->viewport()->update();
+                emit selectionChanged(addr);
                 return true;
             }
             row += int(instr.text.lines.size());
@@ -1921,6 +1927,7 @@ bool DisassemblerGraphView::navigate(duint addr)
         this->ready = false;
         this->desired_pos = nullptr;
         this->viewport()->update();
+        emit selectionChanged(addr);
         return true;
     }
 
@@ -2312,6 +2319,8 @@ void DisassemblerGraphView::setupContextMenu()
 
     mPluginMenu = new QMenu(this);
     Bridge::getBridge()->emitMenuAddToList(this, mPluginMenu, GUI_GRAPH_MENU);
+    mMenuBuilder->addAction(makeAction(tr("Detach"), [this]() { emit detachGraph(); }), [this](QMenu*) { return qobject_cast<QMainWindow*>(this->parent()) == nullptr; });
+
     mMenuBuilder->addSeparator();
     mMenuBuilder->addBuilder(new MenuBuilder(this, [this](QMenu * menu)
     {

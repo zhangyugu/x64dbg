@@ -98,8 +98,8 @@ Configuration::Configuration() : QObject(), noMoreMsgbox(false)
     defaultColors.insert("RegistersHighlightWriteColor", QColor("#B00000"));
     defaultColors.insert("RegistersHighlightReadWriteColor", QColor("#808000"));
 
-    defaultColors.insert("InstructionHighlightColor", QColor("#FF0000"));
-    defaultColors.insert("InstructionHighlightBackgroundColor", Qt::transparent);
+    defaultColors.insert("InstructionHighlightColor", QColor("#FFFFFF"));
+    defaultColors.insert("InstructionHighlightBackgroundColor", QColor("#CC0000"));
     defaultColors.insert("InstructionCommaColor", QColor("#000000"));
     defaultColors.insert("InstructionCommaBackgroundColor", Qt::transparent);
     defaultColors.insert("InstructionPrefixColor", QColor("#000000"));
@@ -462,7 +462,7 @@ Configuration::Configuration() : QObject(), noMoreMsgbox(false)
     defaultShortcuts.insert("ActionFindStrings", Shortcut({tr("Actions"), tr("Find Strings")}, "", true));
     defaultShortcuts.insert("ActionFindIntermodularCalls", Shortcut({tr("Actions"), tr("Find Intermodular Calls")}, "", true));
     defaultShortcuts.insert("ActionToggleBreakpoint", Shortcut({tr("Actions"), tr("Toggle Breakpoint")}, "F2"));
-    defaultShortcuts.insert("ActionEditBreakpoint", Shortcut(tr("Actions -> Set Conditional Breakpoint"), "Shift+F2"));
+    defaultShortcuts.insert("ActionEditBreakpoint", Shortcut({tr("Actions"), tr("Set Conditional Breakpoint")}, "Shift+F2"));
     defaultShortcuts.insert("ActionToggleBookmark", Shortcut({tr("Actions"), tr("Toggle Bookmark")}, "Ctrl+D"));
     defaultShortcuts.insert("ActionDeleteBreakpoint", Shortcut({tr("Actions"), tr("Delete Breakpoint")}, "Delete"));
     defaultShortcuts.insert("ActionEnableDisableBreakpoint", Shortcut({tr("Actions"), tr("Enable/Disable Breakpoint")}, "Space"));
@@ -511,7 +511,6 @@ Configuration::Configuration() : QObject(), noMoreMsgbox(false)
     defaultShortcuts.insert("ActionToggleDestinationPreview", Shortcut({tr("Actions"), tr("Enable/Disable Branch Destination Preview")}, "P"));
     defaultShortcuts.insert("ActionFind", Shortcut({tr("Actions"), tr("Find")}, "Ctrl+F"));
     defaultShortcuts.insert("ActionFindInModule", Shortcut({tr("Actions"), tr("Find in Current Module")}, "Ctrl+Shift+F"));
-    defaultShortcuts.insert("ActionEditBreakpoint", Shortcut({tr("Actions"), tr("Edit breakpoint")}, ""));
     defaultShortcuts.insert("ActionToggleLogging", Shortcut({tr("Actions"), tr("Enable/Disable Logging")}, ""));
     defaultShortcuts.insert("ActionAllocateMemory", Shortcut({tr("Actions"), tr("Allocate Memory")}, ""));
     defaultShortcuts.insert("ActionFreeMemory", Shortcut({tr("Actions"), tr("Free Memory")}, ""));

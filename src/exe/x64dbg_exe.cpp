@@ -38,16 +38,6 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
         error = GetLastError(); 
         return error;
     }
-    else
-    {
-        FUN fun = (FUN)GetProcAddress(hInst, "add");
-        if (fun)
-            sum = fun(5, 5);
-        MESSAGEBOX _MessageBox = (MESSAGEBOX)GetProcAddress(hInst, "MessageBox");
-        if (_MessageBox)
-            _MessageBox();
-    }
-    
     const wchar_t* errormsg = BridgeInit();
     if(errormsg)
     {
