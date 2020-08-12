@@ -30,14 +30,14 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 {
     CrashDumpInitialize();
     
-    DWORD error;
-    //HMODULE hInst=LoadLibraryW(L"D:\\QtCode\\build-Library-Desktop_Qt_5_14_1_MSVC2017_32bit-Release\\release\\Library.dll");
-    HMODULE hInst = LoadLibraryW(L"x32gui.dll");
-    if(!hInst) 
-    {
-        error = GetLastError(); 
-        return error;
-    }
+    //DWORD error;
+    ////HMODULE hInst=LoadLibraryW(L"D:\\QtCode\\build-Library-Desktop_Qt_5_14_1_MSVC2017_32bit-Release\\release\\Library.dll");
+    //HMODULE hInst = LoadLibraryW(L"x32gui.dll");
+    //if(!hInst) 
+    //{
+    //    error = GetLastError(); 
+    //    return error;
+    //}
     const wchar_t* errormsg = BridgeInit();
     if(errormsg)
     {
